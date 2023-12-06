@@ -1,0 +1,73 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "people",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "number",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"custom:dev-run-script": "./scripts/deploy_with_ethers.ts",
+			"details": "Store & retrieve value in a variable",
+			"kind": "dev",
+			"methods": {},
+			"title": "Storage",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"index.sol": "SimpleContract"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"index.sol": {
+			"keccak256": "0x8c81d62141eaeb6424ac8ffe1682777de502234bfc1b0054a9637e301d9c2abe",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://03c9179e55cd2e5e50c96541b8b22ac441bd6688fbb53fea07be9172d6bad08d",
+				"dweb:/ipfs/QmYRLufByZ7EhMiBsh2hBU8nBRXbSMpbYcDRCmc3UDzLA9"
+			]
+		}
+	},
+	"version": 1
+}
