@@ -8,6 +8,24 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_number",
+						"type": "uint256"
+					}
+				],
+				"name": "addPerson",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
@@ -61,11 +79,11 @@
 	},
 	"sources": {
 		"index.sol": {
-			"keccak256": "0x8c81d62141eaeb6424ac8ffe1682777de502234bfc1b0054a9637e301d9c2abe",
+			"keccak256": "0xeafebab503ecb41cda581fa67979a68a30bbb5d13f8aa721dcb26c33c8d47726",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://03c9179e55cd2e5e50c96541b8b22ac441bd6688fbb53fea07be9172d6bad08d",
-				"dweb:/ipfs/QmYRLufByZ7EhMiBsh2hBU8nBRXbSMpbYcDRCmc3UDzLA9"
+				"bzz-raw://a60b7a3ad62b79cbb148417fd0374e08c7c08c1aae59eb4a79cee9181bcb17a3",
+				"dweb:/ipfs/QmaivoXFVyfZ9ZDfRSbjjWUea6VMMptpd3wviewBpoVx4U"
 			]
 		}
 	},

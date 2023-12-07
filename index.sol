@@ -8,10 +8,7 @@ pragma solidity >=0.8.2 <0.9.0;
  * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
  */
 
-
-
- contract SimpleContract {
-
+contract SimpleContract {
     struct Person {
         string name;
         uint256 number;
@@ -21,4 +18,8 @@ pragma solidity >=0.8.2 <0.9.0;
 
     Person[] public people;
 
- }
+    function addPerson(string memory _name, uint256 _number) public {
+        Person memory newPerson = Person(_name, _number);
+        people.push(newPerson);
+    }
+}
