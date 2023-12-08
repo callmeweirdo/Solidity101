@@ -37,4 +37,6 @@ contract SimpleContract {
         personNumber[_name] = _number;
 
     }
+
+    // end of lesson
 }
