@@ -38,5 +38,5 @@ contract SimpleContract {
 
     }
 
-    // end of lesson
+    // end of lesson and will begin another one
 }
