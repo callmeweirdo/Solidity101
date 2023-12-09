@@ -2,7 +2,7 @@
 
 pragma solidity >=0.8.2 <0.9.0;
 
-import "./index.sol";
+import {SimpleContract} from "./index.sol";
 
 contract StorageFactory{
     // uint256 public name;
@@ -11,5 +11,5 @@ contract StorageFactory{
 
     function createSimpleStorageContract() public {
         simpleContract = new SimpleContract();
-    }  
+    }
 }

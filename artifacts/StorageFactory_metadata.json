@@ -54,11 +54,11 @@
 	},
 	"sources": {
 		"StorageFactory.sol": {
-			"keccak256": "0xa2a139924104ab5031ec8edbe0ce4489d0e16a702ad7feec202626d1fc306239",
+			"keccak256": "0xb6a0ed92feafb24b9c3d1689b54ce56218bdb41d75ac5acf75ce786673e0094b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f77fd7e9cc1e960dc70090ccbdd8be19893f4321e34abccbcd8e825bfe7fb7cd",
-				"dweb:/ipfs/QmdJ9AYa4bDJSkRw4X51KufhM7E2x3y35L6zQF4kJtKJNV"
+				"bzz-raw://5a034e4469a75c4188b18708e43941632ae865c3b307308ca01cf080d0a89868",
+				"dweb:/ipfs/QmTXnWCwED2xzHuM2PoCQH1avThkKpZm9TuT2ar4MmV1C2"
 			]
 		},
 		"index.sol": {
