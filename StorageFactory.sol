@@ -7,9 +7,21 @@ import {SimpleContract} from "./index.sol";
 contract StorageFactory{
     // uint256 public name;
 
-    SimpleContract public simpleContract;
+    SimpleContract[] public listOfSimpleContract;
 
     function createSimpleStorageContract() public {
-        simpleContract = new SimpleContract();
+        SimpleContract newSimpleContract = new SimpleContract();
+        listOfSimpleContract.push(newSimpleContract);
     }
+
+    function sfStore(uint256 _sfStoreIndex, uint256 _sfStoreNumber  ) public {
+        SimpleContract simpleContract = listOfSimpleContract[_sfStoreIndex];
+        simpleContract.store(_sfStoreNumber);
+    }
+
+    function sfGet(uint256 _sfStoreIndex ) public view returns (uint256 _sfStoreNumber){
+        SimpleContract simpleContract = listOfSimpleContract[_sfStoreIndex];
+        return simpleContract.retrieve();
+    }
+
 }
