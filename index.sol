@@ -17,7 +17,7 @@ contract SimpleContract {
         uint256 number;
     }
 
-    function store(uint256 _publicNumber) public {
+    function store(uint256 _publicNumber) public virtual {
         publicNumber = _publicNumber;
     }
 
@@ -38,5 +38,5 @@ contract SimpleContract {
 
     }
 
-    // end of lesson
+    // end of lesson and will begin another one
 }

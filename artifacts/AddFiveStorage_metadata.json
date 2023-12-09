@@ -96,7 +96,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_publicNumber",
+						"name": "_newNumber",
 						"type": "uint256"
 					}
 				],
@@ -107,11 +107,8 @@
 			}
 		],
 		"devdoc": {
-			"custom:dev-run-script": "./scripts/deploy_with_ethers.ts",
-			"details": "Store & retrieve value in a variable",
 			"kind": "dev",
 			"methods": {},
-			"title": "Storage",
 			"version": 1
 		},
 		"userdoc": {
@@ -122,7 +119,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"StorageFactory.sol": "SimpleContract"
+			"AddFiveStorage.sol": "AddFiveStorage"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -136,12 +133,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"StorageFactory.sol": {
-			"keccak256": "0xf81e3f86c1f8ed84cf32193f9d0ae97758d721b97b7a062314ba35ac3b3c6e66",
+		"AddFiveStorage.sol": {
+			"keccak256": "0x23dded595c224c222909317bc360cec4c1091281853d948bbbe8519968a6aafc",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5b3a717d2aa1f7fa442c1048ba2fce36fdc77caf66792bd7916ac84af428f8f1",
-				"dweb:/ipfs/QmZgQ6tPSSGE8FFKTpcnj55QicyGmxfok8jBG6hsj2Bnwn"
+				"bzz-raw://a6f8455bfa5c8902974e0e443f76d95d4ddba3510652330993a5c737f188fe44",
+				"dweb:/ipfs/QmSHJG8rR1Yzg1hfrorK94z6tKw3xctPNNxqSYTnRXYLFe"
+			]
+		},
+		"index.sol": {
+			"keccak256": "0x78944ca6eb292ca9710c16b7266c84f9539a218b9aa0b3de83fd11eb8e10b45f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://585ebe5d82b2cd99e687f2fcdfcadcd55de46900a3c969b2c35895402e130e6e",
+				"dweb:/ipfs/QmYVpQiJ9ckd7ePtE1cwXhnum76XHhydQKkwf9YkqeSD8P"
 			]
 		}
 	},
