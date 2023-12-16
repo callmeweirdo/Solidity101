@@ -23,7 +23,7 @@ contract FundMe {
         // allow users to send money
         // have a minimum $ to send
         // now how do we send Eth to this contract ?
-        require(getPriceInUsd(msg.value) >= 1e18, "Please top up your balance to make this transaction"); // 1e18 = 1 ETH = 1000000000000000000
+        require(getPriceInUsd(msg.value) >= minimumUsd, "Please top up your balance to make this transaction"); // 1e18 = 1 ETH = 1000000000000000000
     }
 
     function getPrice() public view returns (uint256) {
@@ -41,4 +41,4 @@ contract FundMe {
         // 114942289698000000000000
         //  $2304.29288149
     }
-}
+}//5000000000000000000
