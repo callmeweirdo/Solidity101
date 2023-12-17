@@ -11,7 +11,6 @@ import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/Ag
 import {PriceConverter} from "./PriceConverter.sol";
 
 contract FundMe {
-    
     using PriceConverter for uint256;
 
     address[] public funders;
@@ -29,7 +28,13 @@ contract FundMe {
     uint256 ethAmount = msg.value;
     require(PriceConverter.getPriceInUsd(aggregator, ethAmount) >= minimumUsd, "Please top up your balance to make this transaction");
     funders.push(msg.sender);
-    addressToAmountFunded[msg.sender] = ethAmount;
-}
+    addressToAmountFunded[msg.sender] += ethAmount;
+    }
 
+    function withdraw() public {
+        for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++){
+            address funder = funders[funderIndex];
+            addressToAmountFunded[funder] = 0;
+        }
+    }
 }
