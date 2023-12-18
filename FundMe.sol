@@ -43,6 +43,14 @@ contract FundMe {
         //i Transfer
         //ii Send
         //iii Call
+
+        //also to make the function sendable, the sender has to be type casted using the payable() method
+        //the transfer method throws an error if it fails
         payable(msg.sender).transfer(address(this).balance);
+
+        // the send methos returns a boolean of true if the transaction was success or false if it fails
+        bool sendSuccess = payable(msg.sender).send(address(this).balance);
+        require(sendSuccess, "Sending Failed");
+
     }
 }
