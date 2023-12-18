@@ -36,7 +36,13 @@ contract FundMe {
             address funder = funders[funderIndex];
             addressToAmountFunded[funder] = 0;
         }
-
+        // resetting the array
         funders = new address[](0);
+
+        // in soldity,there  are basically three ways so withraw the native coin
+        //i Transfer
+        //ii Send
+        //iii Call
+        payable(msg.sender).transfer(address(this).balance);
     }
 }
