@@ -25,14 +25,21 @@ contract FundMe {
     uint256 public minimumUsd = 5e18;
 
     function fund() public payable {
-    uint256 ethAmount = msg.value;
-    require(PriceConverter.getPriceInUsd(aggregator, ethAmount) >= minimumUsd, "Please top up your balance to make this transaction");
-    funders.push(msg.sender);
-    addressToAmountFunded[msg.sender] += ethAmount;
+        uint256 ethAmount = msg.value;
+        require(
+            PriceConverter.getPriceInUsd(aggregator, ethAmount) >= minimumUsd,
+            "Please top up your balance to make this transaction"
+        );
+        funders.push(msg.sender);
+        addressToAmountFunded[msg.sender] += ethAmount;
     }
 
     function withdraw() public {
-        for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++){
+        for (
+            uint256 funderIndex = 0;
+            funderIndex < funders.length;
+            funderIndex++
+        ) {
             address funder = funders[funderIndex];
             addressToAmountFunded[funder] = 0;
         }
@@ -48,12 +55,18 @@ contract FundMe {
         //the transfer method throws an error if it fails
         payable(msg.sender).transfer(address(this).balance);
 
-        // the send methos returns a boolean of true if the transaction was success or false if it fails
+        // the send methods returns a boolean of true if the transaction was success or false if it fails
         bool sendSuccess = payable(msg.sender).send(address(this).balance);
         require(sendSuccess, "Sending Failed");
 
         // the call
-        (bool callSuccess,  ) = payable(msg.sender).call{value: address(this).balance}("");
+        (bool callSuccess, ) = payable(msg.sender).call{
+            value: address(this).balance
+        }("");
         require(callSuccess, "Call Failed");
     }
+
+    // NOTE:: in solidity, there are two types of addresses
+    // i) normal address:  msg.sender
+    // ii) payable address: payable(msg.sender)
 }
