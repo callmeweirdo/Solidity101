@@ -16,10 +16,13 @@ contract FundMe {
     address[] public funders;
     mapping(address => uint256) public addressToAmountFunded;
 
+    address public owner;
+
     AggregatorV3Interface public aggregator;
 
     constructor(AggregatorV3Interface _aggregator) {
         aggregator = _aggregator;
+        owner = msg.sender;
     }
 
     uint256 public minimumUsd = 5e18;
@@ -35,6 +38,7 @@ contract FundMe {
     }
 
     function withdraw() public {
+        require(msg.sender == owner, "Only owner can withdraw");
         for (
             uint256 funderIndex = 0;
             funderIndex < funders.length;
