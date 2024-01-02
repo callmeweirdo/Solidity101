@@ -4,7 +4,7 @@
 //withdraw from the donation
 // set a minimum value of payment in Usd
 
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.23;
 
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
@@ -20,25 +20,24 @@ contract FundMe {
 
     AggregatorV3Interface public aggregator;
 
-    constructor(AggregatorV3Interface _aggregator) {
+    constructor(AggregatorV3Interface _aggregator)  {
         aggregator = _aggregator;
-        owner = msg.sender;
+        //owner = msg.sender;
     }
 
-    uint256 public minimumUsd = 5e18;
+    uint256 public constant MINIMUM_USD = 5e18;
 
     function fund() public payable {
         uint256 ethAmount = msg.value;
         require(
-            PriceConverter.getPriceInUsd(aggregator, ethAmount) >= minimumUsd,
+            PriceConverter.getPriceInUsd(aggregator, ethAmount) >= MINIMUM_USD,
             "Please top up your balance to make this transaction"
         );
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] += ethAmount;
     }
 
-    function withdraw() public {
-        require(msg.sender == owner, "Only owner can withdraw");
+    function withdraw() public ownerOnly {
         for (
             uint256 funderIndex = 0;
             funderIndex < funders.length;
@@ -57,11 +56,14 @@ contract FundMe {
 
         //also to make the function sendable, the sender has to be type casted using the payable() method
         //the transfer method throws an error if it fails
-        payable(msg.sender).transfer(address(this).balance);
+
+        // payable(msg.sender).transfer(address(this).balance);
 
         // the send methods returns a boolean of true if the transaction was success or false if it fails
-        bool sendSuccess = payable(msg.sender).send(address(this).balance);
-        require(sendSuccess, "Sending Failed");
+        /* 
+            bool sendSuccess = payable(msg.sender).send(address(this).balance);
+            require(sendSuccess, "Sending Failed");
+        */
 
         // the call
         (bool callSuccess, ) = payable(msg.sender).call{
@@ -73,4 +75,12 @@ contract FundMe {
     // NOTE:: in solidity, there are two types of addresses
     // i) normal address:  msg.sender
     // ii) payable address: payable(msg.sender)
+
+    modifier ownerOnly(){
+        require(msg.sender == owner, "Only owner can withdraw");
+    _   ;
+    }
 }
+
+
+//0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
